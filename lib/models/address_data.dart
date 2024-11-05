@@ -2,8 +2,8 @@
 class AddressData {
   final String venue;
   final String address;
-  final String latitude;
-  final String longitude;
+  final double latitude;
+  final double longitude;
 
   AddressData({
     required this.venue,

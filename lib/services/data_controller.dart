@@ -27,7 +27,7 @@ class DataController extends GetxController {
       "addressData": {
         "venue": "Gelora Bung Karno Stadium",
         "address": "209 Soi Thong Lo, Watthana, Thailand",
-        "latitude": "13.7300", "longitude": "100.5693",
+        "latitude": 13.7300, "longitude": 100.5693,
       },
       "activities": [
         {
@@ -70,8 +70,8 @@ class DataController extends GetxController {
       "addressData": {
         "venue": "Apollo Theater",
         "address": "253 W 125th St, New York, USA",
-        "latitude": "40.8106",
-        "longitude": "-73.9505",
+        "latitude": 40.8106,
+        "longitude": -73.9505,
       },
       "activities": [
         { "title": "Wine", "image": "assets/wine.png" },
@@ -103,8 +103,8 @@ class DataController extends GetxController {
       "addressData": {
         "venue": "Bondi Pavilion",
         "address": "Queen Elizabeth Dr, Bondi Beach, Australia",
-        "latitude": "-33.8908",
-        "longitude": "151.2743",
+        "latitude": -33.8908,
+        "longitude": 151.2743,
       },
       "activities": [
         { "title": "Wine", "image": "assets/wine.png" },
