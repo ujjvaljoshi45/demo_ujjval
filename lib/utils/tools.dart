@@ -21,4 +21,6 @@ abstract class Tools {
           .of(context)
           .viewInsets
           .bottom;
+
+  static SizedBox defaultSize = SizedBox(height: 8.h);
 }
