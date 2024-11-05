@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import 'widgets/custom_app_bar.dart';
 
@@ -49,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                     return Flexible(
                         child: ListView.builder(
                       itemBuilder: (context, index) => InkWell(
-                        onTap: () => Get.to(()=>EventScreen(event: snapshot.requireData[index])),
+                        onTap: () => Get.to( transition: Transition.cupertino, ()=>EventScreen(event: snapshot.requireData[index])),
                           child: EventCard(data: snapshot.requireData[index])),
                       itemCount: snapshot.requireData.length,
                     ));
