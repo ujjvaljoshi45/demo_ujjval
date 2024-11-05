@@ -12,8 +12,19 @@ import 'package:get/get.dart';
 
 import 'widgets/custom_app_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    DataController.instance.fetchData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +44,9 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                FutureBuilder(
-                  future: DataController.instance.getData(),
-                  builder: (context, snapshot) {
-                    while (!snapshot.hasData ||
-                        snapshot.requireData.isEmpty ||
-                        (snapshot.connectionState == ConnectionState.waiting)) {
+                GetBuilder<DataController>(
+                  builder: (controller) {
+                    if (controller.myEvents.isEmpty) {
                       return const Center(
                         child: CircularProgressIndicator(
                           color: AppColors.main,
@@ -48,9 +56,9 @@ class HomeScreen extends StatelessWidget {
                     return Flexible(
                         child: ListView.builder(
                       itemBuilder: (context, index) => InkWell(
-                        onTap: () => Get.to( transition: Transition.cupertino, ()=>EventScreen(event: snapshot.requireData[index])),
-                          child: EventCard(data: snapshot.requireData[index])),
-                      itemCount: snapshot.requireData.length,
+                          onTap: () => Get.to(() => EventScreen(event: controller.myEvents[index])),
+                          child: EventCard(data: controller.myEvents[index])),
+                      itemCount: controller.myEvents.length,
                     ));
                   },
                 )

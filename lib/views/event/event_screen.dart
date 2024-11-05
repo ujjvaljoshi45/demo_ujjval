@@ -8,7 +8,6 @@ import 'package:demo_ujjval/views/event/widgets/guest_slider.dart';
 import 'package:demo_ujjval/views/home/widgets/activity_chips.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
@@ -48,7 +47,7 @@ class _EventScreenState extends State<EventScreen> {
                         viewportFraction: 1,
                         aspectRatio: 16 / 9,
                         height: 250.h
-                    ))),
+                    ),),),
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back,
