@@ -9,6 +9,7 @@ import 'package:demo_ujjval/views/home/widgets/activity_chips.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:readmore/readmore.dart';
@@ -29,11 +30,12 @@ class _EventScreenState extends State<EventScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+
             expandedHeight: 300.0,
             pinned: false,
             flexibleSpace: FlexibleSpaceBar(
-                background: CarouselSlider(
-                    items: [
+              background: CarouselSlider(
+                items: [
                   for (String image in widget.event.images)
                     Image.asset(
                       image,
@@ -41,13 +43,14 @@ class _EventScreenState extends State<EventScreen> {
                       fit: BoxFit.cover,
                     ),
                 ],
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      // enlargeCenterPage: true,
-                        viewportFraction: 1,
-                        aspectRatio: 16 / 9,
-                        height: 250.h
-                    ),),),
+                options: CarouselOptions(
+                    autoPlay: true,
+                    // enlargeCenterPage: true,
+                    viewportFraction: 1,
+                    aspectRatio: 16 / 9,
+                    height: 250.h),
+              ),
+            ),
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back,
@@ -65,13 +68,7 @@ class _EventScreenState extends State<EventScreen> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.r),
-                      topRight: Radius.circular(30.r),
-                    ),
-                  ),
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Column(
                     children: [
@@ -94,7 +91,7 @@ class _EventScreenState extends State<EventScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Guests", style: AppStyles.heading),
-                          Text(widget.event.guestCount.toString()),
+                          Text(widget.event.guestCount.toString(),style: AppStyles.heading.copyWith(color: AppColors.main),),
                         ],
                       ),
                       Tools.space16h,
@@ -119,7 +116,10 @@ class _EventScreenState extends State<EventScreen> {
                       SizedBox(
                           height: 200.h,
                           width: double.infinity.w,
-                          child: MapWidget(latitude: widget.event.addressData.latitude,longitude: widget.event.addressData.longitude,)),
+                          child: MapWidget(
+                            latitude: widget.event.addressData.latitude,
+                            longitude: widget.event.addressData.longitude,
+                          )),
                     ],
                   ),
                 )
@@ -182,56 +182,55 @@ class _EventScreenState extends State<EventScreen> {
       );
 
   Widget _buildBottomBar() => SizedBox(
-    height: 60.h,
-    child: Padding(
-      padding:  EdgeInsets.symmetric(horizontal:12.0.w),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              height: 40.0.h,
-              width: 50.0.w,
-              decoration: BoxDecoration(
-                color: Colors.white, // Background color of the container
-                borderRadius: BorderRadius.circular(12.0.r),
-                border: Border.all(color: AppColors.main, width: 2.0.w),
-              ),
-              child: Center(
-                child: Image.asset(
-                  "assets/sms.png",
+        height: 60.h,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
                   height: 40.0.h,
-                  width: 40.0.w,
+                  width: 50.0.w,
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Background color of the container
+                    borderRadius: BorderRadius.circular(12.0.r),
+                    border: Border.all(color: AppColors.main, width: 2.0.w),
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      "assets/sms.png",
+                      height: 40.0.h,
+                      width: 40.0.w,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(
-            width: 10.w,
-          ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  fixedSize: WidgetStatePropertyAll(Size(50.h, double.infinity)),
-                  shape: WidgetStatePropertyAll(
-                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-                  ),
-                  backgroundColor: const WidgetStatePropertyAll(AppColors.main)),
-              child: Text(
-                "Join Now",
-                style: AppStyles.poppins.copyWith(
-                    fontWeight: FontWeight.w600, fontSize: 19.sp, color: AppColors.white),
+              SizedBox(
+                width: 10.w,
               ),
-            ),
-          )
-        ],
-      ),
-    ),
-  );
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      fixedSize: WidgetStatePropertyAll(Size(50.h, double.infinity)),
+                      shape: WidgetStatePropertyAll(
+                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+                      ),
+                      backgroundColor: const WidgetStatePropertyAll(AppColors.main)),
+                  child: Text(
+                    "Join Now",
+                    style: AppStyles.poppins.copyWith(
+                        fontWeight: FontWeight.w600, fontSize: 19.sp, color: AppColors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      );
 }
-
 
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key, required this.latitude, required this.longitude});
@@ -244,7 +243,7 @@ class MapWidget extends StatefulWidget {
 class _MapWidgetState extends State<MapWidget> {
   @override
   Widget build(BuildContext context) {
-    return  Card(
+    return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24.r)),
       child: FlutterMap(
         options: MapOptions(
@@ -252,16 +251,22 @@ class _MapWidgetState extends State<MapWidget> {
           initialZoom: 9.2,
         ),
         children: [
-          TileLayer( // Display map tiles from any source
+          TileLayer(
+            // Display map tiles from any source
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // OSMF's Tile Server
             userAgentPackageName: 'com.example.app',
             // And many more recommended properties!
           ),
-          RichAttributionWidget( // Include a stylish prebuilt attribution widget that meets all requirments
+          MarkerLayer(markers: [
+            Marker(point: LatLng(widget.latitude, widget.longitude), child: FaIcon(FontAwesomeIcons.locationPin,size: 22.sp,),),
+          ]),
+          RichAttributionWidget(
+            // Include a stylish prebuilt attribution widget that meets all requirments
             attributions: [
               TextSourceAttribution(
                 'OpenStreetMap contributors',
-                onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')), // (external)
+                onTap: () =>
+                    launchUrl(Uri.parse('https://openstreetmap.org/copyright')), // (external)
               ),
               // Also add images...
             ],
