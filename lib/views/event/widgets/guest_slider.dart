@@ -12,43 +12,46 @@ class GuestSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          for (GuestData guest in guests)
-            Container(
-              width: 90.w,
-              height: 110.h,
-              // padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16.0.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.15),
-                    blurRadius: 10.r,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
+      child: Padding(
+        padding: const EdgeInsets.only( bottom: 16.0),
+        child: Row(
+          children: [
+            for (GuestData guest in guests)
+              Container(
+                width: 90.w,
+                height: 110.h,
+                // padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16.0.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.15),
+                      blurRadius: 10.r,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                margin: EdgeInsets.symmetric(horizontal: 8.0.w),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(guest.profileImage),
+                      radius: 25.r,
+                    ),
+                    Tools.space8h,
+                    Text(
+                      guest.name,
+                      softWrap: false,
+                      overflow: TextOverflow.fade,
+                      style: AppStyles.poppins.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
               ),
-              margin: EdgeInsets.symmetric(horizontal: 8.0.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(guest.profileImage),
-                    radius: 25.r,
-                  ),
-                  Tools.space8h,
-                  Text(
-                    guest.name,
-                    softWrap: false,
-                    overflow: TextOverflow.fade,
-                    style: AppStyles.poppins.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

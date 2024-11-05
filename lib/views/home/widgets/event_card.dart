@@ -17,6 +17,7 @@ class EventCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
       ),
+
       elevation: 8,
       child: Padding(
         padding: EdgeInsets.all(12.0.r),
@@ -57,13 +58,13 @@ class EventCard extends StatelessWidget {
             ),
             Tools.space8h,
             // Venue
-            InfoWidget(
+            CardInfoWidget(
               image: "assets/pin.png",
               text: data.addressData.address,
             ),
             Tools.space8h,
             // Date and Time
-            InfoWidget(
+            CardInfoWidget(
               image: "assets/calender.png",
               text: "${data.date} | ${data.timeRange}",
             ),

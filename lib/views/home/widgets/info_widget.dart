@@ -3,10 +3,10 @@ import 'package:demo_ujjval/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class InfoWidget extends StatelessWidget {
+class CardInfoWidget extends StatelessWidget {
   final String image;
   final String text;
-  const InfoWidget({super.key, required this.image, required this.text});
+  const CardInfoWidget({super.key, required this.image, required this.text});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,10 +22,9 @@ class InfoWidget extends StatelessWidget {
         ),
         Text(
           text,
-          style: AppStyles.poppins.copyWith(
-            fontSize: 12.sp,
-            color: AppColors.main,
-          ),
+          softWrap: true,
+          maxLines: 1,
+          style: AppStyles.subtitle.copyWith(fontSize: 12.sp),
         ),
       ],
     );

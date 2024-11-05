@@ -11,9 +11,9 @@ class AlertInfoWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.main, width: 3),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(20.r),
       ),
-      padding: EdgeInsets.all(4.r),
+      padding: EdgeInsets.symmetric(vertical: 9.h, horizontal: 20.w),
       child: Row(
         children: [
           Image.asset(
@@ -30,7 +30,10 @@ class AlertInfoWidget extends StatelessWidget {
                 Text(
                   text,
                   softWrap: true,
-                  style: AppStyles.poppins.copyWith(color: AppColors.main,fontSize: 12.sp,fontWeight: FontWeight.w500),
+                  style: AppStyles.poppins.copyWith(
+                      color: AppColors.main,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500),
                 )
               ],
             ),
