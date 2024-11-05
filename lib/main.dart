@@ -1,4 +1,4 @@
-import 'package:demo_ujjval/views/home_screen.dart';
+import 'package:demo_ujjval/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
