@@ -24,26 +24,27 @@ class CustomAppBar extends StatelessWidget {
                   Text(
                     "GOOD MORNING",
                     style: AppStyles.poppins.copyWith(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.main),
+                        fontSize: 12.sp, fontWeight: FontWeight.w500, color: AppColors.main),
                   )
                 ],
               ),
               Text(
                 "John Doe",
-                style: AppStyles.poppins.copyWith(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.black),
+                style: AppStyles.poppins
+                    .copyWith(fontSize: 24.sp, fontWeight: FontWeight.w500, color: AppColors.black),
               )
             ],
           ),
         ),
         CircleAvatar(
-          radius: 32.r,
+            radius: 32.r,
             backgroundColor: AppColors.main,
-            child: CircleAvatar(backgroundImage: const AssetImage("assets/dp.png",),radius: 28.r,))
+            child: CircleAvatar(
+              backgroundImage: const AssetImage(
+                "assets/dp.png",
+              ),
+              radius: 28.r,
+            ))
       ],
     );
   }

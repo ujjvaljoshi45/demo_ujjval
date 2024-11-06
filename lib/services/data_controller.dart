@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class DataController extends GetxController {
   static final instance = DataController._();
+  // For creating a singleton controller
   DataController._();
   bool isInited = false;
   List<Event> myEvents = [];
@@ -18,7 +19,7 @@ class DataController extends GetxController {
           (e) => Event.fromJson(e),
         )
         .toList();
-    await Future.delayed(const Duration(milliseconds: 100));
-    update();
+    await Future.delayed(const Duration(milliseconds: 100)); // To replicate api call
+    update(); // Updating the ui in Home Screen
   }
 }

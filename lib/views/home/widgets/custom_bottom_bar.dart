@@ -1,7 +1,5 @@
-import 'package:demo_ujjval/utils/styles.dart';
+import 'package:demo_ujjval/views/home/widgets/bottom_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({super.key});
@@ -32,26 +30,6 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class MyBottomBarItem extends StatelessWidget {
-  const MyBottomBarItem({super.key, required this.image, required this.text});
-  final String image;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Expanded(child: Image.asset(image)),
-        Text(
-          text,
-          style: AppStyles.poppins.copyWith(fontSize: 10.sp),
-        )
-      ],
     );
   }
 }

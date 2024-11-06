@@ -25,17 +25,14 @@ class _MapWidgetState extends State<MapWidget> {
         borderRadius: BorderRadius.circular(15.r),
         child: FlutterMap(
           options: MapOptions(
-            initialCenter: LatLng(
-                widget.latitude, widget.longitude), // Center the map over London
+            initialCenter: LatLng(widget.latitude, widget.longitude),
             initialZoom: 9.2,
           ),
           children: [
             TileLayer(
-              // Display map tiles from any source
-              urlTemplate:
-                  'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // OSMF's Tile Server
-              userAgentPackageName: 'com.example.app',
-              // And many more recommended properties!
+              // using osm for loading map
+              urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+              userAgentPackageName: 'com.example.demo_ujjval',
             ),
             MarkerLayer(markers: [
               Marker(
@@ -47,14 +44,13 @@ class _MapWidgetState extends State<MapWidget> {
               ),
             ]),
             RichAttributionWidget(
-              // Include a stylish prebuilt attribution widget that meets all requirments
               attributions: [
                 TextSourceAttribution(
                   'OpenStreetMap contributors',
-                  onTap: () => launchUrl(Uri.parse(
-                      'https://openstreetmap.org/copyright')), // (external)
+                  onTap: () => launchUrl(
+                    Uri.parse('https://openstreetmap.org/copyright'),
+                  ),
                 ),
-                // Also add images...
               ],
             ),
           ],

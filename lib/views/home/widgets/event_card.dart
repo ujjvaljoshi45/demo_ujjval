@@ -17,7 +17,6 @@ class EventCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
       ),
-
       elevation: 8,
       child: Padding(
         padding: EdgeInsets.all(12.0.r),

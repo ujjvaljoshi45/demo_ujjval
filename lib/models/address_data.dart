@@ -1,4 +1,3 @@
-
 class AddressData {
   final String venue;
   final String address;

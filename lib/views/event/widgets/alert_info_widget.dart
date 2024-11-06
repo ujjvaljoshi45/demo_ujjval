@@ -31,9 +31,7 @@ class AlertInfoWidget extends StatelessWidget {
                   text,
                   softWrap: true,
                   style: AppStyles.poppins.copyWith(
-                      color: AppColors.main,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w500),
+                      color: AppColors.main, fontSize: 12.sp, fontWeight: FontWeight.w500),
                 )
               ],
             ),

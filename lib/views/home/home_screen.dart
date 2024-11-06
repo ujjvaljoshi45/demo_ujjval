@@ -22,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
+    // Calling Api in init state
     DataController.instance.fetchData();
     super.initState();
   }
@@ -44,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 10.h,
                 ),
+                // Builder will rebuild on receiving data
                 GetBuilder<DataController>(
                   builder: (controller) {
                     if (controller.myEvents.isEmpty) {
