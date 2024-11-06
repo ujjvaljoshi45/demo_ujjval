@@ -27,7 +27,7 @@ class EventCard extends StatelessWidget {
           children: [
             // Event Image with Super User Badge
             _buildTitle(),
-            Tools.defaultSize,
+            Tools.space8h,
             // Event Title
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,7 +40,7 @@ class EventCard extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
-                Tools.defaultSize,
+                Tools.space8h,
                 Row(
                   children: [
                     _buildPreviewImages(),
@@ -55,19 +55,19 @@ class EventCard extends StatelessWidget {
                 ),
               ],
             ),
-            Tools.defaultSize,
+            Tools.space8h,
             // Venue
-            InfoWidget(
+            CardInfoWidget(
               image: "assets/pin.png",
               text: data.addressData.address,
             ),
-            Tools.defaultSize,
+            Tools.space8h,
             // Date and Time
-            InfoWidget(
+            CardInfoWidget(
               image: "assets/calender.png",
               text: "${data.date} | ${data.timeRange}",
             ),
-            Tools.defaultSize,
+            Tools.space8h,
             // Tags
             ActivityChips(
               activities: data.activities,

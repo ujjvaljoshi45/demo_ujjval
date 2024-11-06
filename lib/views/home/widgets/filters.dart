@@ -18,36 +18,39 @@ class FilterRow extends StatelessWidget {
   }
 
   Widget _buildFilterOption(String imagePath, String label) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20.0.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            imagePath,
-            width: 14.w,
-            height: 14.h,
-          ),
-          SizedBox(width: 3.0.w),
-          Text(
-            label,
-            style: AppStyles.poppins.copyWith(
-              fontSize: 12.0.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.0.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
-          ),
-        ],
+          ],
+        ),
+        child: Row(
+          children: [
+            Image.asset(
+              imagePath,
+              width: 14.w,
+              height: 14.h,
+            ),
+            SizedBox(width: 3.0.w),
+            Text(
+              label,
+              style: AppStyles.poppins.copyWith(
+                fontSize: 12.0.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
